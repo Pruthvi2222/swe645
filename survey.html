@@ -1,0 +1,186 @@
+<!-- This file contains a student survey form for collecting personal information and opinions about the university and its campus. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Survey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Black background */
+      color: #f0f8f7; /* Light text for readability */
+      line-height: 1.6; /* Increased line height for better readability */
+    }
+
+    header {
+      background-color: #006633; /* Mason green */
+      padding: 20px;
+      text-align: center;
+      color: white;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      margin: 0 auto; /* Center the container */
+      background-color: #222; /* Darker background for contrast */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+      display: flex;
+      flex-direction: column; /* Column layout */
+      align-items: center; /* Center children */
+    }
+
+    h1 {
+      color: #9cd27a; /* Light green for headings */
+      font-size: 2em; /* Increased font size for headings */
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 1.1em; /* Slightly larger font for labels */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      max-width: 400px; /* Set a max width for input fields */
+      padding: 12px; /* Increased padding for inputs */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px; /* More space below inputs */
+      font-size: 1em; /* Increased font size for inputs */
+    }
+
+    .checkbox-group,
+    .radio-group {
+      margin-bottom: 20px;
+    }
+
+    .checkbox-group label,
+    .radio-group label {
+      margin-right: 20px; /* Space between options */
+      font-size: 1em; /* Standard font size for options */
+    }
+
+    .submit-button,
+    .cancel-button {
+      padding: 12px 24px;
+      background-color: #006633; /* Button color */
+      color: white; /* Text color */
+      text-decoration: none; /* Remove underline */
+      border-radius: 5px; /* Rounded corners */
+      font-weight: bold; /* Bold text */
+      font-size: 1em; /* Standard font size for buttons */
+      transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+      border: none; /* No border */
+      cursor: pointer; /* Pointer cursor */
+      margin-right: 10px; /* Space between buttons */
+      margin-top: 10px; /* Space above buttons */
+    }
+
+    .submit-button:hover,
+    .cancel-button:hover {
+      background-color: #004d26; /* Darker shade on hover */
+      transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+
+    small {
+      display: block;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      color: #f0f8f7; /* Light color for help text */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Student Survey Form</h1>
+</header>
+
+<div class="container">
+  <form id="survey-form">
+    <label for="first-name">First Name <span style="color: red;">*</span></label>
+    <input type="text" id="first-name" name="first-name" required>
+
+    <label for="last-name">Last Name <span style="color: red;">*</span></label>
+    <input type="text" id="last-name" name="last-name" required>
+
+    <label for="address">Street Address <span style="color: red;">*</span></label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="city">City <span style="color: red;">*</span></label>
+    <input type="text" id="city" name="city" required>
+
+    <label for="state">State <span style="color: red;">*</span></label>
+    <input type="text" id="state" name="state" required>
+
+    <label for="zip">Zip Code <span style="color: red;">*</span></label>
+    <input type="text" id="zip" name="zip" required>
+
+    <label for="telephone">Telephone Number <span style="color: red;">*</span></label>
+    <input type="tel" id="telephone" name="telephone" required>
+
+    <label for="email">E-mail <span style="color: red;">*</span></label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="date">Date of Survey <span style="color: red;">*</span></label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="recommendation">Likelihood of Recommending This School:</label>
+    <select id="recommendation" name="recommendation">
+      <option value="very-likely">Very Likely</option>
+      <option value="likely">Likely</option>
+      <option value="unlikely">Unlikely</option>
+    </select>
+
+    <label for="raffle">Raffle Numbers (10 comma-separated numbers from 1-100):</label>
+    <input type="text" id="raffle" name="raffle" pattern="^(?:[1-9][0-9]?,?){9}[1-9][0-9]?$" required>
+    <small>Example: 1,2,3,4,5,6,7,8,9,10</small>
+
+    <label>What did you like most about the campus?</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="liked[]" value="students"> Students</label>
+      <label><input type="checkbox" name="liked[]" value="location"> Location</label>
+      <label><input type="checkbox" name="liked[]" value="campus"> Campus</label>
+      <label><input type="checkbox" name="liked[]" value="atmosphere"> Atmosphere</label>
+      <label><input type="checkbox" name="liked[]" value="dorm-rooms"> Dorm Rooms</label>
+      <label><input type="checkbox" name="liked[]" value="sports"> Sports</label>
+    </div>
+
+    <label>How did you become interested in the university?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="interest" value="friends" required> Friends</label>
+      <label><input type="radio" name="interest" value="television" required> Television</label>
+      <label><input type="radio" name="interest" value="internet" required> Internet</label>
+      <label><input type="radio" name="interest" value="other" required> Other</label>
+    </div>
+
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" name="comments" rows="4"></textarea>
+
+    <button type="submit" class="submit-button">Submit Survey</button>
+    <button type="button" class="cancel-button" onclick="resetForm()">Cancel</button>
+  </form>
+</div>
+
+<script>
+  function resetForm() {
+    document.getElementById('survey-form').reset();
+  }
+</script>
+
+</body>
+</html>
